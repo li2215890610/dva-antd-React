@@ -1,0 +1,12 @@
+.header_top{
+  padding: 0 20px;
+  text-align: right;
+  color: #fff;
+}
+.header_Go_Out{
+  display: inline-block;
+  text-align: right;
+}
+.header_Go_Out a{
+  margin-left: 20px;
+}

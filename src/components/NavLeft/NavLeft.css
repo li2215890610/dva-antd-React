@@ -1,0 +1,11 @@
+.nav_left{
+  background: #011429;
+  overflow: auto;
+  height: calc(100vh),
+}
+.nav_left_top{
+  height: 60px;
+}
+.link_font_color{
+  color: rgba(255, 255, 255, 0.65)
+}

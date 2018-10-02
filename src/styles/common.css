@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  height: calc(100vh);
+}
+.nav_left{
+  height: calc(100vh);
+}
+.main{
+  flex: 1;
+  height: calc(100vh);
+}
