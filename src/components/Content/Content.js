@@ -23,6 +23,8 @@ import NoMatch from "../../pages/NoMatch/NoMatch";
 
 import LifeCycle from "../../pages/Component/LifeCycle";
 
+import styles from "./Content.css";
+
 const { Content } = Layout
 
 class Contents extends React.Component {
@@ -38,7 +40,7 @@ class Contents extends React.Component {
     /* <Breadcrumbs/> */
 
     return (
-      <Content style={{ margin: '0px 16px 0px 16px', padding: '20px 5px', background: '#fff', minHeight: 280 }}>
+      <Content className={styles.content} >
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/home/:type/:ks?" exact component={Home} />

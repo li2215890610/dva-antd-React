@@ -5,6 +5,12 @@
 }
 .nav_left_top{
   height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav_left_top button{
+  margin: 0 auto;
 }
 .link_font_color{
   color: rgba(255, 255, 255, 0.65)

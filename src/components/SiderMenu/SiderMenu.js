@@ -6,30 +6,59 @@ import { NavLink} from 'dva/router';
 
 import menuConfig from "../../config/menuConfig";
 
-import styles from "./NavLeft.css";
+import styles from "./SiderMenu.css";
 
 const SubMenu = Menu.SubMenu;
 
 const { Sider } = Layout;
 
 
-class NavLeft extends React.Component {
+class SiderMenu extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
       collapsed: false,
       openKeys: [],
-      current:"/home"
+      current:""
     };
     
   }
 
   componentDidMount = ()=>{ 
+    let openKeys = '';
+    if (window.location.pathname.search('/form') !== -1 ) {
+      // debugger
+      openKeys = "/form"
+    }else if(window.location.pathname.search('/order') !== -1 ){
+      openKeys = "/order"
+    }else if(window.location.pathname.search('/table') !== -1){
+      openKeys = "/table"
+    }else if(window.location.pathname.search('/ui') !== -1){
+      openKeys = "/ui"
+    }
+    
+    console.log(openKeys);
+    
     this.setState({
-      current: window.location.pathname
+      current: window.location.pathname,
+      openKeys:[openKeys]
     })
+    
+    
+    // const latestOpenKey = ['/form'].find(key => this.state.openKeys.indexOf(key) === -1);
+    // console.log(latestOpenKey);
+    
+    // if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+    //   this.setState({ openKeys:['/form'] });
+    // } else {
+    //   this.setState({
+    //     openKeys: latestOpenKey ? [latestOpenKey] : [],
+    //   });
+    // }
+
   }
+
   rootSubmenuKeys = ['/home', '/ui', '/form','/table','/rich','/city','/order','/user','/bikeMap','/charts','/permission']
 
   toggleCollapsed = () => {
@@ -50,10 +79,6 @@ class NavLeft extends React.Component {
   }
 
   handleClick = ({ item, key }) => {
-
-    // let { dispatch } = this.props;
-    
-    // dispatch(Action.switchMenu(item.props.title,key))
 
     this.setState({
       current: key,
@@ -104,7 +129,7 @@ class NavLeft extends React.Component {
     return (
       <div className={styles.nav_left}>
         <div className={styles.nav_left_top}>
-          <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
+          <Button type="primary" onClick={this.toggleCollapsed}>
             <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
           </Button>
         </div>
@@ -115,8 +140,8 @@ class NavLeft extends React.Component {
           <Menu
             mode="inline"  // 菜单样式
             theme={theme} //定义主题颜色
-            // defaultOpenKeys={['/home']} // 默认展开的 一级菜单项
-            // defaultSelectedKeys={['/home']}  //默认选中的二级菜单项
+            defaultOpenKeys={['/table']} // 默认展开的 一级菜单项
+            defaultSelectedKeys={['/table/basic']}  //默认选中的二级菜单项
             selectedKeys={[current]} //默认选中
             onClick={this.handleClick} //点击 MenuItem 调用此函数
             openKeys={openKeys} //当前展开的 SubMenu 菜单项 key 数组	st
@@ -132,7 +157,7 @@ class NavLeft extends React.Component {
   }
 }
 
-export default NavLeft;
+export default SiderMenu;
 
 
 

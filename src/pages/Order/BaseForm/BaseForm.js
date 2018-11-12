@@ -10,11 +10,11 @@ class FilterForm extends React.Component {
 
   handleFilterSubmit = () => {
     let fieldsValue = this.props.form.getFieldsValue();
-
+    debugger
     const values = {
       ...fieldsValue,
-      'begin_time': fieldsValue['begin_time'].format('YYYY-MM-DD HH:mm:ss'),
-      'end_time': fieldsValue['end_time'].format('YYYY-MM-DD HH:mm:ss'),
+      'start_time': fieldsValue.start_time ? fieldsValue['start_time'].format('YYYY-MM-DD HH:mm:ss'):"",
+      'end_time': fieldsValue.end_time ? fieldsValue['end_time'].format('YYYY-MM-DD HH:mm:ss'):"",
     };
 
     this.props.filterSubmit(values);
@@ -41,9 +41,9 @@ class FilterForm extends React.Component {
     return (
       <div>
         <Form layout="inline">
-          <FormItem label="订单时间" >
+          <FormItem label="" >
             {
-              getFieldDecorator('begin_time')(
+              getFieldDecorator('start_time')(
                 <DatePicker showTime={true} placeholder='请输入' format="YYYY-MM-DD HH:mm:ss" />
               )
             }

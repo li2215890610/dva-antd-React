@@ -4,16 +4,11 @@ import Header from "./components/Header/Header";
 
 import Footer from "./components/Footer/Footer";
 
-import NavLeft from "./components/NavLeft/NavLeft";
+import SiderMenu from "./components/SiderMenu/SiderMenu";
 
 import Content from "./components/Content/Content";
 
-import styles from './styles/common.css';
-
-
 import { Layout } from 'antd';
-
-
 
 class Admin extends React.Component {
 
@@ -27,12 +22,12 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <Layout className={styles.container} >
-          <NavLeft className={styles.nav_left} />
-          <Layout className={styles.content}>
-              <Header />
-              <Content/>
-              <Footer />
+        <Layout>
+          <SiderMenu/>
+          <Layout>
+            <Header/>
+            <Content/>
+            <Footer/>
           </Layout>
         </Layout>
       </div>
