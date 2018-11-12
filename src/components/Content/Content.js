@@ -35,23 +35,22 @@ class Contents extends React.Component {
   }
 
   render() {
+    /* <Breadcrumbs/> */
+
     return (
-      <div>
-        {/* <Breadcrumbs/> */}
-        <Content style={{ margin: '0px 16px 0px 16px', padding: '20px 5px', background: '#fff', minHeight: 280 }}>
-          <Switch>
-            <Route path="/home" component={Home}/>
-            <Route path="/home/:type/:ks?" exact component={Home}/>
-            <Route path='/ui' component={Ui} />
-            <Route path='/form' component={Form} />
-            <Route path='/table' component={Table} />
-            <Route path='/city' component={City} />
-            <Route path='/order' component={Order} />
-            <Route path='/component' component={LifeCycle} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Content>
-      </div>
+      <Content style={{ margin: '0px 16px 0px 16px', padding: '20px 5px', background: '#fff', minHeight: 280 }}>
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/home/:type/:ks?" exact component={Home} />
+          <Route path='/ui' component={Ui} />
+          <Route path='/form' component={Form} />
+          <Route path='/table' component={Table} />
+          <Route path='/city' component={City} />
+          <Route path='/order' component={Order} />
+          <Route path='/component' component={LifeCycle} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Content>
     );
   }
 }

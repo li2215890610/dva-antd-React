@@ -2,18 +2,17 @@ import React from "react";
 
 import Header from "./components/Header/Header";
 
-import Footers from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 
-import NavLefts from "./components/NavLeft/NavLeft";
+import NavLeft from "./components/NavLeft/NavLeft";
 
-import Contents from "./components/Content/Content";
+import Content from "./components/Content/Content";
 
 import styles from './styles/common.css';
 
 
 import { Layout } from 'antd';
 
-const { Content, Footer } = Layout;
 
 
 class Admin extends React.Component {
@@ -28,19 +27,12 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <Layout className={styles.container}>
-          <NavLefts className={styles.nav_left} />
+        <Layout className={styles.container} >
+          <NavLeft className={styles.nav_left} />
           <Layout className={styles.content}>
-            <Content>
-
-              <Contents/>
-
-              
-            </Content>
-            <Footer>
-              <Footers />
-            </Footer>
+              <Header />
+              <Content/>
+              <Footer />
           </Layout>
         </Layout>
       </div>

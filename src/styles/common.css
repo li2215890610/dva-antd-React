@@ -1,6 +1,5 @@
 .container{
-  display: flex;
-  height: calc(100vh);
+  min-height: calc(100vh);
 }
 .nav_left{
   height: calc(100vh);
