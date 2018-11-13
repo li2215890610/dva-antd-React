@@ -3,13 +3,13 @@ import React from "react";
 import { Table, Button, Modal
  } from "antd";
 
-import Pagination from "utils/Pagination";
+// import { Pagination} from "utils/Pagination";
 
 import EmptyListContent from 'components/EmptyListContent/EmptyListContent';
 
 // import httpRequest from "../../../../request/request";
 
-import MessageUtlis from "utils/MessageUtlis";
+// import MessageUtlis from "utils/MessageUtlis";
 
 class DynamicTable extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class DynamicTable extends React.Component {
   limit = 10
 
   componentDidMount = ()=>{
-    let { limit, page } = this;
+    // let { limit, page } = this;
     // httpRequest.HttpGet({url:'/table/list',data:{
     //   params:{
     //     page: page,
@@ -56,7 +56,7 @@ class DynamicTable extends React.Component {
   //点击行
   handleClickRow = ( item, index)=>{
 
-    MessageUtlis.Messages('success',`点击了${item.userName}`,2)
+    // MessageUtlis.Messages('success',`点击了${item.userName}`,2)
   }
 
   onChangeRowSelection = ( selectedRowKeys, selectedRows)=>{

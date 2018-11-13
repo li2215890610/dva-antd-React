@@ -6,7 +6,7 @@ import { Card, Button, Table, Modal } from 'antd';
 
 import { formateDate} from 'utils/utlis';
 
-import { Pagination, MessageUtlis} from "utils/MessageUtlis";
+// import { Pagination, MessageUtlis} from "utils/MessageUtlis";
 
 import OpenCityForm from "./OpenCityForm/OpenCityForm";
 
@@ -31,7 +31,7 @@ export default class City extends React.Component {
 
   // 默认请求我们的接口数据
   requestList = () => {
-    let { page } = this;
+    // let { page } = this;
     // httpRequest.HttpGet({
     //   url: '/open_city',
     //   data: {
@@ -77,11 +77,11 @@ export default class City extends React.Component {
   // 城市开通提交
   handleSubmit = () => {
 
-    let cityInfo =  this.cityForm.props.form.getFieldsValue();
+    // let cityInfo =  this.cityForm.props.form.getFieldsValue();
 
-    this.cityForm.props.form.validateFields((err,data)=>{
+    // this.cityForm.props.form.validateFields((err,data)=>{
 
-      if (!err) {
+    //   if (!err) {
         // httpRequest.HttpGet({
         //   url: '/city/open',
         //   data: {
@@ -99,8 +99,8 @@ export default class City extends React.Component {
             
         //   }
         // })
-      }
-    });
+    //   }
+    // });
   }
 
   // 接收搜索监听
