@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Layout } from 'antd';
 
-import { Route, Switch } from 'dva/router';
+import { Route, Switch, Redirect } from 'dva/router';
 
 
 // import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
@@ -42,6 +42,7 @@ class Contents extends React.Component {
     return (
       <Content className={styles.content} >
         <Switch>
+          <Redirect exact from={`/`} to={`/home`}/>
           <Route path="/home" component={Home} />
           <Route path="/home/:type/:ks?" exact component={Home} />
           <Route path='/ui' component={Ui} />

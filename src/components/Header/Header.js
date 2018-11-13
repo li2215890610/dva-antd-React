@@ -16,7 +16,7 @@ class Headers extends React.Component {
   }
   componentDidMount = ()=>{    
     this.setState({
-      userName:"热特姐"
+      userName:"Hello world"
     })
   }
 

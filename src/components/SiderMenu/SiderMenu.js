@@ -27,6 +27,7 @@ class SiderMenu extends React.Component {
 
   componentDidMount = ()=>{ 
     let openKeys = '';
+    // 刷新页面之后默认打开子菜单
     if (window.location.pathname.search('/form') !== -1 ) {
       // debugger
       openKeys = "/form"
@@ -44,19 +45,6 @@ class SiderMenu extends React.Component {
       current: window.location.pathname,
       openKeys:[openKeys]
     })
-    
-    
-    // const latestOpenKey = ['/form'].find(key => this.state.openKeys.indexOf(key) === -1);
-    // console.log(latestOpenKey);
-    
-    // if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-    //   this.setState({ openKeys:['/form'] });
-    // } else {
-    //   this.setState({
-    //     openKeys: latestOpenKey ? [latestOpenKey] : [],
-    //   });
-    // }
-
   }
 
   rootSubmenuKeys = ['/home', '/ui', '/form','/table','/rich','/city','/order','/user','/bikeMap','/charts','/permission']
@@ -79,7 +67,6 @@ class SiderMenu extends React.Component {
   }
 
   handleClick = ({ item, key }) => {
-
     this.setState({
       current: key,
     });
