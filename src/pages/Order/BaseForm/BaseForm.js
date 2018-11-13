@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Input, Select, Form, Button, DatePicker, Row, Col } from 'antd'
 
-import Utils from '../../../utils/utlis';
+import { getOptionList} from 'utils/utlis';
 
 const FormItem = Form.Item;
 
@@ -62,7 +62,7 @@ class FilterForm extends React.Component {
                   style={{ width: '100px' }}
                   placeholder='请选择'
                 >
-                  {Utils.getOptionList(formList[0].list)}
+                  {getOptionList(formList[0].list)}
                 </Select>
               )
             }
@@ -74,7 +74,7 @@ class FilterForm extends React.Component {
                   style={{ width: '100px' }}
                   placeholder='请选择'
                 >
-                  {Utils.getOptionList(formList[1].list)}
+                  {getOptionList(formList[1].list)}
                 </Select>
               )
             }

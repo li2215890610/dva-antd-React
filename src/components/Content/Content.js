@@ -7,21 +7,21 @@ import { Route, Switch, Redirect } from 'dva/router';
 
 // import Breadcrumbs from "../Breadcrumb/Breadcrumbs";
 
-import Home from "../../pages/Home/Home";
+import Home from "pages/Home/Home";
 
-import Ui from "../../pages/Ui/Ui";
+import Ui from "pages/Ui/Ui";
 
-import Form from "../../pages/Form/Form";
+import Form from "pages/Form/Form";
 
-import Table from "../../pages/Table/Table";
+import Table from "pages/Table/Table";
 
-import City from "../../pages/City/City";
+import City from "pages/City/City";
 
-import Order from "../../pages/Order/Order";
+import Order from "pages/Order/Order";
 
-import NoMatch from "../../pages/NoMatch/NoMatch";
+import NoMatch from "pages/NoMatch/NoMatch";
 
-import LifeCycle from "../../pages/Component/LifeCycle";
+import LifeCycle from "pages/Component/LifeCycle";
 
 import styles from "./Content.css";
 

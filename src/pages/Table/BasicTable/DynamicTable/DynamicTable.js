@@ -3,13 +3,13 @@ import React from "react";
 import { Table, Button, Modal
  } from "antd";
 
-import Pagination from "../../../../utils/Pagination";
+import Pagination from "utils/Pagination";
 
-import EmptyListContent from '../../../../components/EmptyListContent/EmptyListContent';
+import EmptyListContent from 'components/EmptyListContent/EmptyListContent';
 
-import httpRequest from "../../../../servers/request";
+// import httpRequest from "../../../../request/request";
 
-import MessageUtlis from "../../../../utils/MessageUtlis";
+import MessageUtlis from "utils/MessageUtlis";
 
 class DynamicTable extends React.Component {
   constructor(props) {
@@ -29,28 +29,28 @@ class DynamicTable extends React.Component {
 
   componentDidMount = ()=>{
     let { limit, page } = this;
-    httpRequest.HttpGet({url:'/table/list',data:{
-      params:{
-        page: page,
-        page_size: limit
-      }
-    }}).then((res)=>{
+    // httpRequest.HttpGet({url:'/table/list',data:{
+    //   params:{
+    //     page: page,
+    //     page_size: limit
+    //   }
+    // }}).then((res)=>{
 
-      if (res.code === 0) {
+    //   if (res.code === 0) {
 
-        res.result.list.map((item,index)=>{
-           return item.key = index
-        })
-        this.setState({
-          dataSourceDynamic:res.result.list,
-          pagination:Pagination.Pagination(res,this.handlePaginationChange,this.handlePaginationShowSizeChange)
-        })
-      }
-    }).then((err)=>{
-      if (err) {
-        MessageUtlis.Messages('error','调用失败',2)
-      }
-    })    
+    //     res.result.list.map((item,index)=>{
+    //        return item.key = index
+    //     })
+    //     this.setState({
+    //       dataSourceDynamic:res.result.list,
+    //       pagination:Pagination.Pagination(res,this.handlePaginationChange,this.handlePaginationShowSizeChange)
+    //     })
+    //   }
+    // }).then((err)=>{
+    //   if (err) {
+    //     MessageUtlis.Messages('error','调用失败',2)
+    //   }
+    // })    
   }
 
   //点击行

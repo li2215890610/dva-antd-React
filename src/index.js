@@ -18,7 +18,7 @@ const app = dva({
 // app.use({});
 
 // 3. Model
-// app.model(require('./models/example').default);
+app.model(require('./models/OrderDetail').default);
 
 // 4. Router
 app.router(RouterConfig);

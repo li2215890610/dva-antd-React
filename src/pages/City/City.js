@@ -2,17 +2,15 @@ import React from 'react';
 
 import { Card, Button, Table, Modal } from 'antd';
 
-import httpRequest from './../../servers/request';
+// import httpRequest from '../../request/request';
 
-import Utils from '../../utils/utlis';
+import { formateDate} from 'utils/utlis';
 
-import Pagination from "../../utils/MessageUtlis";
+import { Pagination, MessageUtlis} from "utils/MessageUtlis";
 
 import OpenCityForm from "./OpenCityForm/OpenCityForm";
 
 import FilterForm from "./FilterForm/FilterForm";
-
-import MessageUtlis from "../../utils/MessageUtlis";
 
 export default class City extends React.Component {
   constructor(props) {
@@ -34,23 +32,23 @@ export default class City extends React.Component {
   // 默认请求我们的接口数据
   requestList = () => {
     let { page } = this;
-    httpRequest.HttpGet({
-      url: '/open_city',
-      data: {
-        page: page
-      }
-    }).then((res) => {
-      let List = res.result.item_list.map((item, index) => {
-        item.key = index;
-        return item;
-      });
-      this.setState({
-        List,
-        Pagination: Pagination.Pagination(res, this.handlePaginationChange, this.handlePaginationShowSizeChange)
-      })
-    }).catch((err)=>{
-      console.log(err.code);
-    })
+    // httpRequest.HttpGet({
+    //   url: '/open_city',
+    //   data: {
+    //     page: page
+    //   }
+    // }).then((res) => {
+    //   let List = res.result.item_list.map((item, index) => {
+    //     item.key = index;
+    //     return item;
+    //   });
+    //   this.setState({
+    //     List,
+    //     Pagination: Pagination.Pagination(res, this.handlePaginationChange, this.handlePaginationShowSizeChange)
+    //   })
+    // }).catch((err)=>{
+    //   console.log(err.code);
+    // })
   }
 
   handlePaginationChange = (current) => {
@@ -84,23 +82,23 @@ export default class City extends React.Component {
     this.cityForm.props.form.validateFields((err,data)=>{
 
       if (!err) {
-        httpRequest.HttpGet({
-          url: '/city/open',
-          data: {
-            params: cityInfo
-          }
-        }).then((res) => {
-          if (res.code === 0) {
-            MessageUtlis.Messages('success','开通成功');
-            this.setState({
-              isShowOpenCity: false
-            })
-            this.requestList();
-          }else{
-            console.log(res);
+        // httpRequest.HttpGet({
+        //   url: '/city/open',
+        //   data: {
+        //     params: cityInfo
+        //   }
+        // }).then((res) => {
+        //   if (res.code === 0) {
+        //     MessageUtlis.Messages('success','开通成功');
+        //     this.setState({
+        //       isShowOpenCity: false
+        //     })
+        //     this.requestList();
+        //   }else{
+        //     console.log(res);
             
-          }
-        })
+        //   }
+        // })
       }
     });
   }
@@ -147,7 +145,7 @@ export default class City extends React.Component {
       }, {
         title: '操作时间',
         dataIndex: 'update_time',
-        render: Utils.formateDate
+        render: formateDate
       }, {
         title: '操作人',
         dataIndex: 'sys_user_name'

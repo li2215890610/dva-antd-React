@@ -1,101 +1,115 @@
+import axios from 'axios'
 
-// import jsonpRequset from "jsonp";
+import { message } from "antd";
+// storageGetItem
+import { storageRemoveItem } from "utils/utlis";
 
-import axios from "axios";
+import baseURL from "servers/urlConfig";
 
-let baseApi = 'https://www.easy-mock.com/mock/5ba79d4aac71c35ec6ba705e/antd_basics_ui_react';
+import qs from 'qs';
 
+let instance = axios.create({
+  baseURL: baseURL.base_url,
+  timeout: 5000,
+  headers: { "Content-Type": 'application/x-www-form-urlencoded', }
 
-export default class jsonp {
-  // static jsonp(data) {
-  //   return new Promise((resolve, reject) => {
-  //     jsonpRequset(data.url, {
-  //       param: 'callback'
-  //     }, (err, res) => {
-  //       debugger
-  //       if (res.status === 'success') {
-  //         resolve(res.results[0].weather_data[0]);
-  //       } else {
-  //         reject(new Error(res.messsage));
-  //       }
-  //     })
-  //   })
+});
+
+instance.interceptors.request.use(function (config) {
+  // 发送之前  绑定token
+  // if (config.url !== `platform/login` && storageGetItem('token')) {
+  //   config.headers.Authorization = storageGetItem('token').token;
   // }
+  return config;
+}, function (error) {
+  // 发送出错
+  message.warning("刷新页面请重试")
+  return Promise.reject(error);
+});
+
+instance.interceptors.response.use(function (response) {
+  // 响应成功
+  return response;
+}, function (error) {
+  console.log(error.response);
+  // 响应失败
+  return Promise.reject(error);
+});
 
 
-  static HttpGet(options) {
-    // let loading;
-    // if (options.data && options.data.isShowLoading !== false) {
-    //   loading = document.getElementById('ajaxLoading');
-    //   loading.style.display = 'block';
-    // }
-
-    return new Promise((resolve, reject) => {
-      axios({
-        url: options.url,
-        method: 'get',
-        baseURL: baseApi,
-        timeout: 5000,
-        params: (options.data && options.data.params) || ''
-      }).then((response) => {
-        // if (options.data && options.data.isShowLoading !== false) {
-        //   loading = document.getElementById('ajaxLoading');
-        //   loading.style.display = 'none';
-        // }
-        
-        if (response.status === 200) {
-          let res = response.data;
-          if (res.code === 0) {            
-            resolve(res);
-          } else {
-            reject(res);
-          }
-        } else {
-          reject(response.data,null);
-        }        
-      }).catch((err)=>{        
-        reject(err,null)
+function catchHttpServerError( error){
+  if (error && !error.response) {
+    message.error("未知错误")
+    storageRemoveItem().then((data) => {
+      window._history.push({
+        pathname: `/login`,
       })
-    });
-  }
+    }).catch((err) => {
 
-  static HttpPost(options) {
-
-    return new Promise((resolve, reject) => {
-      axios({
-        url: options.url,
-        method: 'POST',
-        baseURL: baseApi,
-        timeout: 5000,
-        data: options.data
-      }).then((response) => {
-        // if (options.data && options.data.isShowLoading !== false) {
-        //   loading = document.getElementById('ajaxLoading');
-        //   loading.style.display = 'none';
-        // }
-        if (response.status === 200) {
-          let res = response.data;
-          if (res.code === 0) {
-            resolve(null,res);
-          } else {
-            resolve(res,null);
-          }
-        } else {
-          reject(response.data,null);
-        }
-      }).catch((err)=>{        
-        reject(err,null)
+    })
+  } else if (error.response.status === 403 || error.response.status === 401) {
+    message.error(error.response.data.detail)
+    storageRemoveItem().then((data) => {
+      window._history.push({
+        pathname: `/login`,
       })
-    });
+    }).catch((err) => {
+
+    })
+    return
+  } else {
+    message.error(error.response.data.detail)
+    // storageRemoveItem().then((data) => {
+    //   window._history.push({
+    //     pathname: `/login`,
+    //   })
+    // }).catch((err) => {
+
+    // })
   }
 }
 
 
+export function requestHttpGET(options) {
+  return new Promise((resolve, reject) => {
+    instance.get(options.url, { params: options.data }).then((data) => {
 
+      console.log(data)
+      if (data.data && data.data.result && data.data.code !== 0) {
+        reject(new Error("出错了"));
+      }
+      else if (data.data && data.data.result && data.data.code === 0) {
+        resolve(data.data);
+      } else {
+        reject(new Error("未知错误"));
+      }
+    }).catch(function (error) {
+      console.log(error.response);
+      reject(error)
+      catchHttpServerError(error)
+    });
+  });
+}
 
+export function requestHttpPOST(options) {
+  return new Promise((resolve, reject) => {
 
+    instance.post(options.url, qs.stringify(options.data)).then((data) => {
 
+      if (data.data && data.data.status && data.data.status.code === 1) {
+        reject(new Error(data.data.status.desc));
+      }
+      else if (data.data && data.data.status && data.data.status.code === 0) {
+        resolve(data.data.result);
+      } else {
+        reject(new Error("未知错误"));
+      }
 
-
-
+    }).catch(function (error) {
+      console.info("error", error.response)
+      reject(error)
+      catchHttpServerError(error)
+    });
+  });
+}
 

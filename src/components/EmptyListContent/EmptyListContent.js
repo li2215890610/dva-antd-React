@@ -2,6 +2,8 @@ import React from "react";
 
 import { Button } from 'antd';
 
+
+// 封装无状态组件
 export default class EmptyListContent extends React.Component{ 
 
   constructor(props) {
@@ -18,6 +20,7 @@ export default class EmptyListContent extends React.Component{
       errored
     } = this.props;
 
+    // loaded ? ( errored ? '加载失败':'暂无数据'):"loading" 
     return (
       loaded 
       ? ( errored 

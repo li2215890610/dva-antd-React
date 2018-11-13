@@ -1,12 +1,12 @@
 import React from "react";
 
-import Header from "./components/Header/Header";
+import Header from "components/Header/Header";
 
-import Footer from "./components/Footer/Footer";
+import Footer from "components/Footer/Footer";
 
-import SiderMenu from "./components/SiderMenu/SiderMenu";
+import SiderMenu from "components/SiderMenu/SiderMenu";
 
-import Content from "./components/Content/Content";
+import Content from "components/Content/Content";
 
 import { Layout } from 'antd';
 
