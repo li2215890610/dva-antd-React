@@ -7,4 +7,7 @@
    order: {
     open_city: `/open_city`, 
    },
+   table:{
+    list:`/table/list`
+   }
  }
