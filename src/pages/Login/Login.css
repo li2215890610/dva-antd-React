@@ -22,6 +22,7 @@
     height:80px;
     line-height: 80px;
     background:rgba(21,20,13, .9);
+    z-index: 100;
 }
 .logo{
     padding-left: 100px;
