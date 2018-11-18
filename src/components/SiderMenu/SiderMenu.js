@@ -135,33 +135,28 @@ class SiderMenu extends React.Component {
 
   renderPathname = ( data,cb) =>{
     
-
     if (data.search(`/form/`) !== -1) {
-      
       cb({
         menu: data,
         openKeys: [`/form`]
       })
     }else  if (data.search(`/order/`) !== -1) {
-      
+
       cb({
         menu: data,
         openKeys: [`/order`]
       })
     }else if (data.search(`/table/`) !== -1) {
-      
       cb({
         menu: data,
         openKeys: [`/table`]
       })
     }else if (data.search(`/ui/`) !== -1) {
-      
       cb({
         menu: data,
         openKeys: [`/ui`]
       })
     }else{
-      
       cb({
         menu: data,
         openKeys:[]
