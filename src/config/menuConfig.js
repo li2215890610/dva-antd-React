@@ -32,15 +32,7 @@ const menuList = [
           {
               "title": 'Tab页签',
               "key": '/ui/tabs',
-          },
-          //   {
-          //       "title": '图片画廊',
-          //       "key": '/ui/gallery',
-          //   },
-          //   {
-          //       "title": '轮播图',
-          //       "key": '/ui/carousel',
-          //   }
+          }
       ]
   },
   {
@@ -66,7 +58,11 @@ const menuList = [
           {
               "title": '综合表格',
               "key": '/table/basic',
-          }
+          },
+          {
+            "title": '动态表格',
+            "key": '/table/dynamic',
+        }
       ]
   },
   {

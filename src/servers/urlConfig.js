@@ -9,5 +9,9 @@
    },
    table:{
     list:`/table/list`
+   },
+   city:{
+    city:`/open_city`,
+    city_open:`/city/open`
    }
  }

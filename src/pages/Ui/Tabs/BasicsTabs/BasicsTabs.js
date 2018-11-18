@@ -6,7 +6,7 @@ import ErrorNotification from "../../Notifications/ErrorNotification/ErrorNotifi
 
 import Loadings from "../../Loadings/Loadings";
 
-// import MessageUtlis from "../../../../utils/MessageUtlis";
+import { Messages} from "utils/MessageUtlis";
 
 import { Tabs } from "antd";
 
@@ -17,7 +17,7 @@ class BasicsTabs extends React.Component {
   changeCallback = (value) => {
     console.log(value);
     
-    // MessageUtlis.Messages("success",`这是点击了第${value}个模版`,2)
+    Messages("success",`这是点击了第${value}个模版`,2)
   }
 
   render() {

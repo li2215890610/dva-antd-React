@@ -4,7 +4,7 @@ import { Card, Row, Col } from "antd";
 
 import { Button } from 'antd';
 
-import Message  from "../../../utils/MessageUtlis";
+import { Messages}  from "utils/MessageUtlis";
 
 import Successs from "./Successs/Successs";
 
@@ -16,10 +16,10 @@ import Warnings from "./Warnings/Warnings";
 
 import styles from "./Messages.css";
 
-class Messages extends React.Component {
+class Message extends React.Component {
 
   onMessages = () =>{
-    Message.Messages('loading','通知',5)
+    Messages('loading','通知',5)
   }
 
   render() {
@@ -49,4 +49,4 @@ class Messages extends React.Component {
   }
 }
 
-export default  Messages ;
+export default  Message ;

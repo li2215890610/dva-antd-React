@@ -15,7 +15,7 @@ import Form from "pages/Form/Form";
 
 import Table from "pages/Table/Table";
 
-import City from "pages/City/City";
+import CityAdministration from "pages/CityAdministration/CityAdministration";
 
 import Order from "pages/Order/Order";
 
@@ -48,7 +48,7 @@ class Contents extends React.Component {
           <Route path='/ui' component={Ui} />
           <Route path='/form' component={Form} />
           <Route path='/table' component={Table} />
-          <Route path='/city' component={City} />
+          <Route path='/city' component={CityAdministration} />
           <Route path='/order' component={Order} />
           <Route path='/component' component={LifeCycle} />
           <Route component={NoMatch} />

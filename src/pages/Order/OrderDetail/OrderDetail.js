@@ -1,6 +1,5 @@
 import React from 'react';
 
-//倒入 connect 连接组件
 import { connect } from 'dva';
 
 import { Card, Table } from 'antd';
@@ -99,24 +98,22 @@ class OrderDetail extends React.Component {
         <Card>
           <BaseForm  filterSubmit={this.handleFilter}/>
         </Card>
-        <div>
-          <Table
-            bordered
-            columns={columns}
-            dataSource={list}
-            pagination={pagination}
-            locale={{
-              emptyText:(
-                <EmptyListContent
-                  loaded={ loaded } 
-                  errored={ errored }
-                  errorContent={<div onClick={this.requestList}>加载失败，<a>重试</a></div>}
-                  emptyContent={ "all" ? <div>还没有数据？ <a href='' onClick={this.requestList}>立即添加</a></div> : <div>暂无相关数据</div>}
-                />
-              )
-            }}
-          />
-        </div>
+        <Table
+          bordered
+          columns={columns}
+          dataSource={list}
+          pagination={pagination}
+          locale={{
+            emptyText:(
+              <EmptyListContent
+                loaded={ loaded } 
+                errored={ errored }
+                errorContent={<div onClick={this.requestList}>加载失败，<a>重试</a></div>}
+                emptyContent={ "all" ? <div>还没有数据？ <a href='' onClick={this.requestList}>立即添加</a></div> : <div>暂无相关数据</div>}
+              />
+            )
+          }}
+        />
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Form, Input, Button, Icon, Checkbox} from "antd";
 
-import Message from "../../../../utils/MessageUtlis";
+import { Messages} from "utils/MessageUtlis";
 
 const FormItem = Form.Item;
 
@@ -20,7 +20,7 @@ class LevelFrom extends React.Component {
    console.log(userInfo);
    this.props.form.validateFields((err,data)=>{
     if (!err) {
-      Message.Messages('success',`${userInfo.userName},恭喜你通过验证,当前密码为${userInfo.userPwd}`,2)
+      Messages('success',`${userInfo.userName},恭喜你通过验证,当前密码为${userInfo.userPwd}`,2)
     }
    })
     return

@@ -1,7 +1,5 @@
 import React from "react";
 
-import DynamicTable from "./DynamicTable/DynamicTable";
-
 import { Card, Table } from "antd";
 
 class BasicTable extends React.Component {
@@ -173,9 +171,6 @@ class BasicTable extends React.Component {
             bordered
             pagination={false}
           />
-        </Card>
-        <Card title="动态数据表格" style={{marginTop:'30px'}}>
-          <DynamicTable/>
         </Card>
       </div>
     )

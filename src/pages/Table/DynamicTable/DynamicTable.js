@@ -8,7 +8,7 @@ import EmptyListContent from 'components/EmptyListContent/EmptyListContent';
 
 import { Pagination} from "utils/Pagination";
 
-import MessageUtlis from "utils/MessageUtlis";
+import { Messages} from "utils/MessageUtlis";
 
 class DynamicTable extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class DynamicTable extends React.Component {
 
   //点击行
   handleClickRow = (item, index) => {
-    MessageUtlis.Messages('success',`点击了${item.userName}`,2)
+    Messages('success',`点击了${item.userName}`,2)
   }
 
   onChangeRowSelection = (selectedItem, selectedRows) => {
@@ -157,7 +157,7 @@ class DynamicTable extends React.Component {
 
     return (
       <div>
-        <div style={{ marginBottom: 16 }}>
+        <div style={{ marginBottom: 16, padding:10 }}>
           <Button
             type="primary"
             onClick={this.handleDelete}

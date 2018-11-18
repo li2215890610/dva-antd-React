@@ -26,24 +26,11 @@ class SiderMenu extends React.Component {
   }
 
   componentDidMount = ()=>{ 
-    let openKeys = '';
-    // 刷新页面之后默认打开子菜单
-    if (window.location.pathname.search('/form') !== -1 ) {
-      // debugger
-      openKeys = "/form"
-    }else if(window.location.pathname.search('/order') !== -1 ){
-      openKeys = "/order"
-    }else if(window.location.pathname.search('/table') !== -1){
-      openKeys = "/table"
-    }else if(window.location.pathname.search('/ui') !== -1){
-      openKeys = "/ui"
-    }
-    
-    console.log(openKeys);
-    
-    this.setState({
-      current: window.location.pathname,
-      openKeys:[openKeys]
+    this.renderPathname(window.location.pathname,(data)=>{
+      this.setState({
+        current: data.menu,
+        openKeys: data.openKeys
+      })
     })
   }
 
@@ -67,9 +54,11 @@ class SiderMenu extends React.Component {
   }
 
   handleClick = ({ item, key }) => {
-    this.setState({
-      current: key,
-    });
+    this.renderPathname(key,(data)=>{
+      this.setState({
+        current: data.menu,
+      })
+    })
   }
 
   renderMenu(dataSource) {
@@ -142,6 +131,44 @@ class SiderMenu extends React.Component {
       </div>
     );
   }
+
+
+  renderPathname = ( data,cb) =>{
+    
+
+    if (data.search(`/form/`) !== -1) {
+      
+      cb({
+        menu: data,
+        openKeys: [`/form`]
+      })
+    }else  if (data.search(`/order/`) !== -1) {
+      
+      cb({
+        menu: data,
+        openKeys: [`/order`]
+      })
+    }else if (data.search(`/table/`) !== -1) {
+      
+      cb({
+        menu: data,
+        openKeys: [`/table`]
+      })
+    }else if (data.search(`/ui/`) !== -1) {
+      
+      cb({
+        menu: data,
+        openKeys: [`/ui`]
+      })
+    }else{
+      
+      cb({
+        menu: data,
+        openKeys:[]
+      })
+    }
+  }
+
 }
 
 export default SiderMenu;

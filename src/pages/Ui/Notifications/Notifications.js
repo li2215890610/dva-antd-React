@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Card, Row, Col } from "antd";
 
-import Message  from "../../../utils/MessageUtlis";
+import { notificationMessage}  from "utils/MessageUtlis";
 
 import { Button } from 'antd';
 
@@ -19,7 +19,7 @@ import styles from "./Notifications.css";
 class Notifications extends React.Component {
 
   notificationMessage = ()=>{
-    Message.notificationMessage('error',{
+    notificationMessage('error',{
 
     },()=>{
       console.log('封装关闭');

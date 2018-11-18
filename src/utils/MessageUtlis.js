@@ -1,6 +1,6 @@
 import { notification, message } from "antd";
 
-function notificationMessage(type
+export function notificationMessage(type
   ,data,cb) {
   notification[type]({
     placement: data.placement || 'topRight',
@@ -13,14 +13,9 @@ function notificationMessage(type
   })
 }
 
-function Messages(type,content,duration) {
+export function Messages(type,content,duration) {
   message[type](
     content || '通知',
     duration || 3,
   )
-}
-
-export default {
-  notificationMessage:notificationMessage,
-  Messages:Messages
 }

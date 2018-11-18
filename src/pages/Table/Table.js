@@ -2,7 +2,9 @@ import React from "react";
 
 import { Route, Switch } from 'dva/router';
 
-import BasicTable from "../Table/BasicTable/BasicTable";
+import BasicTable from "./BasicTable/BasicTable";
+
+import DynamicTable from "./DynamicTable/DynamicTable";
 
 class Tables extends React.Component{
   constructor(props) {
@@ -17,6 +19,7 @@ class Tables extends React.Component{
       <div>
         <Switch>
             <Route path='/table/basic' component={BasicTable}/>
+            <Route path='/table/dynamic' component={DynamicTable}/>
         </Switch>
       </div>
     )
