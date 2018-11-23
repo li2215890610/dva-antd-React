@@ -12,7 +12,6 @@ const SubMenu = Menu.SubMenu;
 
 const { Sider } = Layout;
 
-
 class SiderMenu extends React.Component {
 
   constructor(props) {
@@ -26,6 +25,8 @@ class SiderMenu extends React.Component {
   }
 
   componentDidMount = ()=>{ 
+
+    console.log(window.location.pathname)
     this.renderPathname(window.location.pathname,(data)=>{
       this.setState({
         current: data.menu,
@@ -34,7 +35,7 @@ class SiderMenu extends React.Component {
     })
   }
 
-  rootSubmenuKeys = ['/home', '/ui', '/form','/table','/rich','/city','/order','/user','/bikeMap','/charts','/permission']
+  rootSubmenuKeys = ['/home', '/ui', '/form','/table','/rich','/city','/order','/user','/charts','/permission']
 
   toggleCollapsed = () => {
     this.setState({
@@ -134,14 +135,13 @@ class SiderMenu extends React.Component {
 
 
   renderPathname = ( data,cb) =>{
-    
+
     if (data.search(`/form/`) !== -1) {
       cb({
         menu: data,
         openKeys: [`/form`]
       })
     }else  if (data.search(`/order/`) !== -1) {
-
       cb({
         menu: data,
         openKeys: [`/order`]

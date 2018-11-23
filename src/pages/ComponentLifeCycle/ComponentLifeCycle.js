@@ -4,7 +4,7 @@ import A from "./A";
 
 import B from "./B";
 
-class LifeCycle extends React.Component{
+class ComponentLifeCycle extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -29,4 +29,4 @@ class LifeCycle extends React.Component{
   
 }
 
-export default LifeCycle;
+export default ComponentLifeCycle;

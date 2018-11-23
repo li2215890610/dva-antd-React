@@ -21,7 +21,7 @@ import Order from "pages/Order/Order";
 
 import NoMatch from "pages/NoMatch/NoMatch";
 
-import LifeCycle from "pages/Component/LifeCycle";
+import ComponentLifeCycle from "pages/ComponentLifeCycle/ComponentLifeCycle";
 
 import styles from "./Content.css";
 
@@ -50,7 +50,7 @@ class Contents extends React.Component {
           <Route path='/table' component={Table} />
           <Route path='/city' component={CityAdministration} />
           <Route path='/order' component={Order} />
-          <Route path='/component' component={LifeCycle} />
+          <Route path='/component' component={ComponentLifeCycle} />
           <Route component={NoMatch} />
         </Switch>
       </Content>

@@ -87,11 +87,6 @@ const menuList = [
       "key": '/user'
   },
   {
-      "title": '车辆地图',
-      "icon": 'environment',
-      "key": '/bikeMap'
-  },
-  {
       "title": '权限设置',
       "icon": 'codepen',
       "key": '/permission'
