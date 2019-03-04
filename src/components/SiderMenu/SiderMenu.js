@@ -25,8 +25,7 @@ class SiderMenu extends React.Component {
   }
 
   componentDidMount = ()=>{ 
-
-    console.log(window.location.pathname)
+    // console.log(window.location.pathname)
     this.renderPathname(window.location.pathname,(data)=>{
       this.setState({
         current: data.menu,
